@@ -116,26 +116,19 @@ for (i=0;i<t;i++)
 void    GPIO_config(void)
 {
     GPIO_InitTypeDef    GPIO_InitStructure;     
-    
-    //led contrl p1.3
     GPIO_InitStructure.Pin  = GPIO_Pin_3;   
     GPIO_InitStructure.Mode = GPIO_OUT_PP;      
     GPIO_Inilize(GPIO_P1,&GPIO_InitStructure);  
 
-    //key p3.3
+//  GPIO_InitTypeDef    GPIO_InitStructure;     
+    GPIO_InitStructure.Pin  = GPIO_Pin_0;   
+    GPIO_InitStructure.Mode = GPIO_OUT_PP;      
+    GPIO_Inilize(GPIO_P1,&GPIO_InitStructure);   ///clk
+
+    
     GPIO_InitStructure.Pin  = GPIO_Pin_3;   
     GPIO_InitStructure.Mode = GPIO_PullUp;      
     GPIO_Inilize(GPIO_P3,&GPIO_InitStructure);
-    
-    //contrl by parallel io ctrl  p3.2 p3.3
-    GPIO_InitStructure.Pin  = GPIO_Pin_2;   
-    GPIO_InitStructure.Mode = GPIO_OUT_PP;      
-    GPIO_Inilize(GPIO_P3,&GPIO_InitStructure); 
-    GPIO_InitStructure.Pin  = GPIO_Pin_3;   
-    GPIO_InitStructure.Mode = GPIO_OUT_PP;      
-    GPIO_Inilize(GPIO_P3,&GPIO_InitStructure); 
-
-
     
     P10=1;  
 }
